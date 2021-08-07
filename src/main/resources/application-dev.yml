@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/employee?currentSchema=dev
+    username: jigarnaik
+    password: CCadmin123
+  jpa:
+    open-in-view: false
+    show-sql: true
+server:
+  servlet:
+    context-path: "/"
