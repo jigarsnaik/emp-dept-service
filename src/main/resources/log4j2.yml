@@ -1,0 +1,26 @@
+Configuration:
+  status: error
+  appenders:
+    Console:
+      name: CONSOLE
+      PatternLayout:
+        Pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+
+    RollingFile:
+      - name: FILE
+        fileName: /app/logs/emp-dept-service.log
+        filePattern: "logs/$${date:yyyy-MM}/emp_dept-service-%d{MM-dd-yyyy}-%i.log.gz"
+        PatternLayout:
+          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 10MB
+        DefaultRollOverStrategy:
+          max: 10
+
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: CONSOLE
+        - ref: FILE

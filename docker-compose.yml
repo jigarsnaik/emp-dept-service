@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - /app/logs/
+    links:
+      - db
+  db:
+    image: postgres
+    ports:
+      - 5433:5433
+    restart: always
+    environment:
+      POSTGRES_USER: jigarsnaik
+      POSTGRES_PASSWORD: CCadmin123
+
